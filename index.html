@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Is my text hewwo-susceptible?</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font: normal 1.25rem/125% system-ui;
+      }
+
+      body {
+        margin: 1rem;
+      }
+
+      #input-field {
+        display: block;
+        width: 50%;
+        height: 5rem;
+      }
+
+      input,
+      textarea {
+        padding: 0.5rem 0.75rem;
+        color: #222;
+      }
+
+      #submit-button {
+        border-radius: 0.5rem;
+        margin: 0.5rem 0 1.5rem;
+      }
+
+      #output-stats-container {
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="input-field"></textarea>
+
+    <input id="submit-button" type="button" value="Submit" />
+
+    <div id="output-text-container"></div>
+
+    <div id="output-stats-container"></div>
+
+    <script>
+      let inputField = document.getElementById("input-field"),
+        submitButton = document.getElementById("submit-button"),
+        outputTextContainer = document.getElementById("output-text-container"),
+        outputStatsContainer = document.getElementById(
+          "output-stats-container"
+        );
+
+      function hewwoify(wordArray) {
+        wordArray.forEach(function(word, i) {
+          wordArray[i] = wordArray[i].replace(/r/g, "w");
+          wordArray[i] = wordArray[i].replace(/l/g, "w");
+          wordArray[i] = wordArray[i].replace(/m/g, "mw");
+        });
+        return wordArray;
+      }
+
+      function calcHewwoStats(wordArray) {
+        let countSusWords = 0;
+        let susChars = ["r", "l", "m"];
+        wordArray.forEach(function(word) {
+          if (
+            susChars.some(function(char) {
+              return word.indexOf(char) >= 0;
+            })
+          ) {
+            countSusWords += 1;
+          }
+        });
+        let pctSusWords = String(
+          (countSusWords / wordArray.length) * 100
+        ).substring(0, 4);
+        return [countSusWords, pctSusWords];
+      }
+
+      submitButton.addEventListener("click", function() {
+        let wordArray = inputField.value.split(" ");
+
+        outputStatsContainer.innerHTML = `${
+          calcHewwoStats(wordArray)[0]
+        } of your words are hewwo-susceptible—that's ${
+          calcHewwoStats(wordArray)[1]
+        }% of your whole text! 😱`;
+        
+        outputTextContainer.innerHTML = hewwoify(wordArray).join(" ");
+      });
+    </script>
+  </body>
+</html>
