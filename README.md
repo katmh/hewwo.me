@@ -2,6 +2,8 @@
 
 [Upvote on ProductHunt](https://www.producthunt.com/posts/hewwo-me)
 
-![https://k.katavie.repl.co/hewwo-tweet.png](have you evew wanted to how susceptibwe youw wwiting is to being hewwo-ized? I mwade http://hewwo.me to hewp you find out!)
+![Screenshot of a tweet that says: have you evew wanted to how susceptibwe youw wwiting is to being hewwo-ized? I mwade hewwo.me to hewp you find out!](https://k.katavie.repl.co/hewwo-tweet.png)
 
 *have you evew wanted to how susceptibwe youw wwiting is to being hewwo-ized? I mwade **[hewwo.me](https://hewwo.me)** to hewp you find out!*
+
+![Screenshot of hewwo.me](https://k.katavie.repl.co/hewwo-screenshot.png)
